@@ -6,7 +6,7 @@ Inspired by [https://webdriver.io/docs/dot-reporter.html].
 
 Sample output:
 
-![](screenshot.png)
+![](example/after_with_color.png)
 
 Best view for CI results review. :)
 
