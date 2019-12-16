@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Configure CI
+
 ## 1.0.0
 
 - Initial version
