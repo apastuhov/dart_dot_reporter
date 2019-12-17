@@ -1,6 +1,7 @@
 # Dot reporter for Dart/Flutter tests
 
 ![](https://github.com/apastuhov/dart_dot_reporter/workflows/Dart%20CI/badge.svg?branch=master)
+[![pub package](https://img.shields.io/pub/v/dart_dot_reporter.svg)](https://pub.dev/packages/dart_dot_reporter)
 
 Provided to make short and readable test report for your Dart/Flutter projects.
 
