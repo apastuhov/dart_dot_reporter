@@ -4,7 +4,7 @@
 
 Provided to make short and readable test report for your Dart/Flutter projects.
 
-Inspired by [https://webdriver.io/docs/dot-reporter.html].
+Inspired by [dot-reporter](https://webdriver.io/docs/dot-reporter.html).
 
 Sample output:
 
