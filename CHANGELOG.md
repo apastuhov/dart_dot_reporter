@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Fix global executable name
+
 ## 1.0.1
 
 - Configure CI

@@ -1,6 +1,6 @@
 name: dart_dot_reporter
 description: Dot test reporter for Dart & Flutter & Human. Makes test results clear from the high-level view.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/apastuhov/dart_dot_reporter
 repository: https://github.com/apastuhov/dart_dot_reporter
 
@@ -8,7 +8,7 @@ environment:
   sdk: ">=2.5.0 <3.0.0"
 
 executables:
-  dart_dot_reporter: main
+  dart_dot_reporter: dart_dot_reporter
 
 # dependencies:
 #   path: ^1.6.0

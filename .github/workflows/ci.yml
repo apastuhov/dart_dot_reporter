@@ -16,4 +16,4 @@ jobs:
       - name: Run tests
         run: |
           pub run test --reporter=json > machine.log
-          dart bin/main.dart machine.log
+          dart bin/dart_dot_reporter.dart machine.log

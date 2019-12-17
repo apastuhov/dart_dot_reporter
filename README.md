@@ -17,7 +17,16 @@ Best view for CI results review. :)
 
 If you want to use Dot reporter on the command line, install it using pub global activate:
 
-> pub global activate dart_dot_reporter
+```bash
+pub global activate dart_dot_reporter
+# Add $HOME/.pub-cache/bin to your PATH
+```
+
+or
+
+```bash
+flutter pub global activate dart_dot_reporter
+```
 
 To update it, use the same pub global activate command.
 
@@ -28,15 +37,15 @@ At first you need to use machine readable reporter, here is example for Dart and
 ### Dart
 
 ```bash
-pub run test --reporter=json --coverage=./coverage > machine.log
+pub run test --reporter=json > machine.log || echo 'Tests failed'
 dart_dot_reporter machine.log
 ```
 
 ### Flutter
 
 ```bash
-flutter test --machine > machine.log
-dart_dot_reporter machine.log
+flutter test --machine > machine.log || echo 'Tests failed'
+flutter pub global run dart_dot_reporter machine.log
 ```
 
 ### Arguments
@@ -63,10 +72,11 @@ You can use one of next flags after path:
 ## TODO:
 
 - Count time of execution, and display most slow tests
+- Support tool run as a pipe like `pub run test --reporter=json | dart_dot_reporter`
 
 ## Development
 
-Run the app using `dart bin/main.dart`.
+Run the app using `dart bin/dart_dot_reporter.dart`.
 
 ---
 
