@@ -14,6 +14,7 @@ class DotReporter {
   final bool showId;
   final bool showSuccess;
   final bool hideSkipped;
+  final bool failSkipped;
   final bool showMessage;
   final bool noColor;
   final Stdout out;
@@ -23,6 +24,7 @@ class DotReporter {
     this.showId = false,
     this.showSuccess = false,
     this.hideSkipped = false,
+    this.failSkipped = false,
     this.showMessage = false,
     this.noColor = false,
     this.out,
@@ -38,7 +40,7 @@ class DotReporter {
 
     _render(resultIconsLine, result);
 
-    if (skippedCount > 0) {
+    if (skippedCount > 0 && failSkipped) {
       exitCode = 1;
     }
     if (failedCount > 0) {

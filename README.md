@@ -64,6 +64,7 @@ You can use one of next flags after path:
 | --show-id      | To show id of the test from Machine log.       |
 | --show-message | To show error message of the failed test.      |
 | --no-color     | To disable colors.                             |
+| --fail-skipped | Return exit code 1 if has skipped tests.       |
 
 ## Known issues
 

@@ -49,6 +49,8 @@ void main(List<String> arguments) {
     --show-message   To show error message of the failed test.
 
     --no-color       To disable colors.
+
+    --fail-skipped   Return exit code 1 if has skipped tests.
     ''');
     exitCode = 0;
     return;
@@ -57,6 +59,7 @@ void main(List<String> arguments) {
   dart_dot_reporter.run(
     path: path,
     HIDE_SKIPPED: arguments.contains('--hide-skip'),
+    FAIL_SKIPPED: arguments.contains('--fail-skipped'),
     SHOW_SUCCESS: arguments.contains('--show-success'),
     SHOW_ID: arguments.contains('--show-id'),
     SHOW_MESSAGE: arguments.contains('--show-message'),

@@ -5,6 +5,7 @@ import 'parser.dart';
 
 void run({
   String path,
+  bool FAIL_SKIPPED,
   bool SHOW_SUCCESS,
   bool HIDE_SKIPPED,
   bool SHOW_ID,
@@ -19,6 +20,7 @@ void run({
     parser: parser,
     showSuccess: SHOW_SUCCESS,
     hideSkipped: HIDE_SKIPPED,
+    failSkipped: FAIL_SKIPPED,
     showId: SHOW_ID,
     showMessage: SHOW_MESSAGE,
     noColor: NO_COLOR,

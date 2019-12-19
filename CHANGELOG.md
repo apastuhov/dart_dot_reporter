@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Add option to fail job if has skipped tests
+
 ## 1.0.2
 
 - Fix global executable name

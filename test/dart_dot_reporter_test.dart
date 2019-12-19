@@ -180,6 +180,29 @@ void main() {
     test('Single skip test passed', () {
       parser.tests[skippedTest.id] = skippedTest;
       reporter.printReport();
+      expect(exitCode, 0);
+      verify(out.write('!')).called(1);
+      verify(out.writeln()).called(5);
+      verify(out.write('! skipped name')).called(1);
+      verify(out.writeAll(
+        [
+          'Total: 1',
+          'Success: 0',
+          'Skipped: 1',
+          'Failure: 0',
+        ],
+        '\n',
+      )).called(1);
+    });
+    test('Single skip test failed if flag is passed', () {
+      parser.tests[skippedTest.id] = skippedTest;
+      reporter = DotReporter(
+        noColor: true,
+        out: out,
+        parser: parser,
+        failSkipped: true,
+      );
+      reporter.printReport();
       expect(exitCode, 1);
       verify(out.write('!')).called(1);
       verify(out.writeln()).called(5);
