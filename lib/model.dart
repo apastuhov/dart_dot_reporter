@@ -7,6 +7,7 @@ enum State {
 class TestModel {
   int id;
   String name;
+  String error;
   String message;
   State state;
 
@@ -15,6 +16,7 @@ class TestModel {
     if (other is TestModel) {
       return id == other.id &&
           name == other.name &&
+          error == other.error &&
           message == other.message &&
           state == other.state;
     }
@@ -23,6 +25,6 @@ class TestModel {
 
   @override
   String toString() {
-    return 'TestModel { $id $state $name $message }';
+    return 'TestModel { $id $state $name $error $message }';
   }
 }

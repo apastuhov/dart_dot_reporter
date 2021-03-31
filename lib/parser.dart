@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
 
 import 'model.dart';
 
@@ -26,6 +26,7 @@ class Parser {
     if (line.containsKey('type')) {
       _parseTestStart(line);
       _parseTestError(line);
+      _parseTestMessage(line);
       _parseTestDone(line);
     }
   }
@@ -55,11 +56,21 @@ class Parser {
 
       final model = tests[id];
       if (model != null) {
-        if (error.startsWith('Test failed. See exception logs above.')) {
-          model.message = '\tUnexpected exception.\n';
-        } else {
-          model.message = error.endsWith('\n') ? '\t$error' : '\t$error\n';
+        if (!error.startsWith('Test failed. See exception logs above.')) {
+          model.error = error.endsWith('\n') ? '\t$error' : '\t$error\n';
         }
+      }
+    }
+  }
+
+  void _parseTestMessage(Map<String, dynamic> line) {
+    if (line['type'] == 'print') {
+      int id = line['testID'];
+      String message = line['message'];
+
+      final model = tests[id];
+      if (model != null && message != null) {
+        model.message = '\t$message\n';
       }
     }
   }
