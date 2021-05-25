@@ -140,8 +140,13 @@ class DotReporter {
         break;
     }
 
-    if (model.message != null && showMessage) {
-      base += '\n' + model.message;
+    if (model.state == State.Failure && showMessage) {
+      if (model.error != null) {
+        base += '\n' + model.error;
+      }
+      if (model.message != null) {
+        base += '\n' + model.message;
+      }
     }
     if (showId) {
       return '${model.id} $base';
