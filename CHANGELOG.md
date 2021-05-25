@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Print detailed message when an error occurs instead of "Unexpected exception"
+
 ## 1.0.3
 
 - Add option to fail job if has skipped tests
