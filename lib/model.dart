@@ -2,6 +2,7 @@ enum State {
   Success,
   Skipped,
   Failure,
+  Error,
 }
 
 class TestModel {
