@@ -21,7 +21,7 @@ void main() {
 
       await parser.parseFile('./test/machine_sample.log');
 
-      expect(parser.tests.keys, [27, 5, 28, 29, 30, 31]);
+      expect(parser.tests.keys, [1, 27, 5, 28, 29, 30, 31]);
       expect(
           parser.tests[27],
           TestModel()

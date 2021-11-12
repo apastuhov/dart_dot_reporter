@@ -54,10 +54,6 @@ class Parser {
       int id = line['test']['id'];
       String name = line['test']['name'];
 
-      if (name.startsWith('loading /')) {
-        return;
-      }
-
       final model = tests.putIfAbsent(id, () => TestModel());
       model.id = id;
       model.name = name;
