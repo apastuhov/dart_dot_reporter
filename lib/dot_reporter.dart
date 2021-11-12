@@ -7,6 +7,7 @@ class DotReporter {
   final Parser parser;
 
   int failedCount = 0;
+  int errorCount = 0;
   int skippedCount = 0;
   int successCount = 0;
 
@@ -43,7 +44,7 @@ class DotReporter {
     if (skippedCount > 0 && failSkipped) {
       exitCode = 1;
     }
-    if (failedCount > 0) {
+    if (failedCount > 0 || errorCount > 0 || parser.success == false) {
       exitCode = 2;
     }
   }
@@ -64,7 +65,8 @@ class DotReporter {
         'Total: ${parser.tests.length}',
         _green('Success: $successCount'),
         _yellow('Skipped: $skippedCount'),
-        _red('Failure: $failedCount'),
+        _bgred('Failure: $failedCount'),
+        _red('Error: $errorCount'),
       ],
       '\n',
     );
@@ -98,6 +100,9 @@ class DotReporter {
         case State.Failure:
           failedCount += 1;
           break;
+        case State.Error:
+          errorCount += 1;
+          break;
         case State.Skipped:
           skippedCount += 1;
           break;
@@ -112,6 +117,8 @@ class DotReporter {
   String _getIcon(TestModel model) {
     switch (model.state) {
       case State.Failure:
+        return _bgred('X');
+      case State.Error:
         return _red('X');
       case State.Skipped:
         return _yellow('!');
@@ -127,6 +134,9 @@ class DotReporter {
 
     switch (model.state) {
       case State.Failure:
+        base += _bgred(model.name);
+        break;
+      case State.Error:
         base += _red(model.name);
         break;
       case State.Skipped:
@@ -140,7 +150,8 @@ class DotReporter {
         break;
     }
 
-    if (model.state == State.Failure && showMessage) {
+    if ((model.state == State.Failure || model.state == State.Error) &&
+        showMessage) {
       if (model.error != null) {
         base += '\n' + model.error;
       }
@@ -152,6 +163,13 @@ class DotReporter {
       return '${model.id} $base';
     }
     return base;
+  }
+
+  String _bgred(String text) {
+    if (noColor) {
+      return text;
+    }
+    return '\x1B[41m' + text + '\x1B[0m';
   }
 
   String _red(String text) {
