@@ -60,9 +60,9 @@ void main() {
   });
 
   group('dot_reporter', () {
-    DotReporter reporter;
-    Parser parser;
-    OutMock out;
+    late DotReporter reporter;
+    late Parser parser;
+    late OutMock out;
 
     final loadingTest = TestModel()
       ..id = 0

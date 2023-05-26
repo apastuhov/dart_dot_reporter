@@ -4,13 +4,13 @@ import 'dot_reporter.dart';
 import 'parser.dart';
 
 void run({
-  String path,
-  bool FAIL_SKIPPED,
-  bool SHOW_SUCCESS,
-  bool HIDE_SKIPPED,
-  bool SHOW_ID,
-  bool SHOW_MESSAGE,
-  bool NO_COLOR,
+  required String path,
+  bool FAIL_SKIPPED = true,
+  bool SHOW_SUCCESS = true,
+  bool HIDE_SKIPPED = true,
+  bool SHOW_ID = true,
+  bool SHOW_MESSAGE = true,
+  bool NO_COLOR = true,
 }) async {
   final parser = Parser();
 

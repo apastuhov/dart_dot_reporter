@@ -5,11 +5,11 @@ enum State {
 }
 
 class TestModel {
-  int id;
-  String name;
-  String error;
-  String message;
-  State state;
+  int id=0;
+  String name='';
+  String? error;
+  String? message;
+  State? state;
 
   @override
   bool operator ==(dynamic other) {
