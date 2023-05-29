@@ -109,7 +109,7 @@ void main() {
     });
 
     test('Ignore "loading" tests', () {
-      parser.tests[loadingTest.id] = loadingTest;
+      parser.tests[loadingTest.id!] = loadingTest;
       reporter.printReport();
       expect(exitCode, 0);
       verify(out.write('')).called(2);
@@ -126,7 +126,7 @@ void main() {
     });
 
     test('Single success test passed', () {
-      parser.tests[successTest.id] = successTest;
+      parser.tests[successTest.id!] = successTest;
       reporter.printReport();
       expect(exitCode, 0);
       verify(out.write('.')).called(1);
@@ -144,7 +144,7 @@ void main() {
     });
 
     test('Single error test passed', () {
-      parser.tests[errorTest.id] = errorTest;
+      parser.tests[errorTest.id!] = errorTest;
       reporter.printReport();
       expect(exitCode, 2);
       verify(out.write('X')).called(1);
@@ -162,7 +162,7 @@ void main() {
     });
 
     test('Single error with message test passed', () {
-      parser.tests[errorWithMessageTest.id] = errorWithMessageTest;
+      parser.tests[errorWithMessageTest.id!] = errorWithMessageTest;
       reporter = DotReporter(
         noColor: true,
         showMessage: true,
@@ -188,7 +188,7 @@ void main() {
     });
 
     test('Complex error with message test passed', () {
-      parser.tests[messageTest.id] = messageTest;
+      parser.tests[messageTest.id!] = messageTest;
       reporter = DotReporter(
         noColor: true,
         showMessage: true,
@@ -212,7 +212,7 @@ void main() {
     });
 
     test('Single skip test passed', () {
-      parser.tests[skippedTest.id] = skippedTest;
+      parser.tests[skippedTest.id!] = skippedTest;
       reporter.printReport();
       expect(exitCode, 0);
       verify(out.write('!')).called(1);
@@ -229,7 +229,7 @@ void main() {
       )).called(1);
     });
     test('Single skip test failed if flag is passed', () {
-      parser.tests[skippedTest.id] = skippedTest;
+      parser.tests[skippedTest.id!] = skippedTest;
       reporter = DotReporter(
         noColor: true,
         out: out,
@@ -253,9 +253,9 @@ void main() {
     });
 
     test('All tests passed', () {
-      parser.tests[successTest.id] = successTest;
-      parser.tests[errorTest.id] = errorTest;
-      parser.tests[skippedTest.id] = skippedTest;
+      parser.tests[successTest.id!] = successTest;
+      parser.tests[errorTest.id!] = errorTest;
+      parser.tests[skippedTest.id!] = skippedTest;
 
       reporter.printReport();
       expect(exitCode, 2);
@@ -274,9 +274,9 @@ void main() {
     });
 
     test('hide skipped', () {
-      parser.tests[successTest.id] = successTest;
-      parser.tests[errorTest.id] = errorTest;
-      parser.tests[skippedTest.id] = skippedTest;
+      parser.tests[successTest.id!] = successTest;
+      parser.tests[errorTest.id!] = errorTest;
+      parser.tests[skippedTest.id!] = skippedTest;
       reporter = DotReporter(
         noColor: true,
         out: out,
@@ -300,9 +300,9 @@ void main() {
       )).called(1);
     });
     test('show Id of the test', () {
-      parser.tests[successTest.id] = successTest;
-      parser.tests[errorTest.id] = errorTest;
-      parser.tests[skippedTest.id] = skippedTest;
+      parser.tests[successTest.id!] = successTest;
+      parser.tests[errorTest.id!] = errorTest;
+      parser.tests[skippedTest.id!] = skippedTest;
       reporter = DotReporter(
         noColor: true,
         out: out,
@@ -326,9 +326,9 @@ void main() {
       )).called(1);
     });
     test('show successfull tests in list', () {
-      parser.tests[successTest.id] = successTest;
-      parser.tests[errorTest.id] = errorTest;
-      parser.tests[skippedTest.id] = skippedTest;
+      parser.tests[successTest.id!] = successTest;
+      parser.tests[errorTest.id!] = errorTest;
+      parser.tests[skippedTest.id!] = skippedTest;
       reporter = DotReporter(
         noColor: true,
         out: out,

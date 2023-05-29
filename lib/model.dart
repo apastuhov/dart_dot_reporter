@@ -5,8 +5,8 @@ enum State {
 }
 
 class TestModel {
-  int id=0;
-  String name='';
+  int? id;
+  String? name;
   String? error;
   String? message;
   State? state;
