@@ -1,3 +1,7 @@
+## 1.0.5
+
+- Dart version update (null safety)
+
 ## 1.0.4
 
 - Print detailed message when an error occurs instead of "Unexpected exception"

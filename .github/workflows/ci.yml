@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: google/dart:latest
+      image: dart:3.0-sdk
 
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
-        run: pub get
+        run: dart pub get
       - name: Run tests
         run: |
-          pub run test --reporter=json > machine.log
+          dart pub run test --reporter=json > machine.log
           dart bin/dart_dot_reporter.dart machine.log

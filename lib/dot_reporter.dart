@@ -20,14 +20,14 @@ class DotReporter {
   final Stdout out;
 
   DotReporter({
-    this.parser,
+    required this.parser,
     this.showId = false,
     this.showSuccess = false,
     this.hideSkipped = false,
     this.failSkipped = false,
     this.showMessage = false,
     this.noColor = false,
-    this.out,
+    required this.out,
   });
 
   void printReport() {
@@ -127,25 +127,25 @@ class DotReporter {
 
     switch (model.state) {
       case State.Failure:
-        base += _red(model.name);
+        base += _red(model.name!);
         break;
       case State.Skipped:
-        base += _yellow(model.name);
+        base += _yellow(model.name!);
         break;
       case State.Success:
-        base += _green(model.name);
+        base += _green(model.name!);
         break;
       default:
-        base += model.name;
+        base += model.name!;
         break;
     }
-
+//    - flutter pub global run dart_dot_reporter machine.log --show-message
     if (model.state == State.Failure && showMessage) {
       if (model.error != null) {
-        base += '\n' + model.error;
+        base += '\n' + model.error!;
       }
       if (model.message != null) {
-        base += '\n' + model.message;
+        base += '\n' + model.message!;
       }
     }
     if (showId) {
