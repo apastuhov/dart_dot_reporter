@@ -1,6 +1,6 @@
 name: dart_dot_reporter
 description: Dot test reporter for Dart & Flutter & Human. Makes test results clear from the high-level view.
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/apastuhov/dart_dot_reporter
 repository: https://github.com/apastuhov/dart_dot_reporter
 
